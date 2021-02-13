@@ -5196,6 +5196,7 @@
 				object.
 			</Word>
 			<Word name="PERMISSION_RETURN_OBJECTS" value="65536"></Word>
+      <Word name="PERMISSION_SILENT_ESTATE_MANAGEMENT" value="16384"></Word>
 		</WordsSubsection>
 
 		<WordsSubsection name="C.5. Inventory Constants">
@@ -5215,6 +5216,8 @@
 			<Word name="INVENTORY_SCRIPT" value=""></Word>
 			<Word name="INVENTORY_SOUND" value=""></Word>
 			<Word name="INVENTORY_TEXTURE" value=""></Word>
+      <Word name="INVENTORY_SETTING" value="56"></Word>
+      
 		</WordsSubsection>
 
 		<WordsSubsection name="C.6. Attachment Constants">
@@ -5320,7 +5323,6 @@
 			<Word name="ATTACH_RULEG">
 				Attach to the avatar right upper leg.
 			</Word>
-
 			<Word name="ATTACH_HUD_BOTTOM"></Word>
 			<Word name="ATTACH_HUD_BOTTOM_LEFT"></Word>
 			<Word name="ATTACH_HUD_BOTTOM_RIGHT"></Word>
@@ -5329,7 +5331,23 @@
 			<Word name="ATTACH_HUD_TOP_CENTER"></Word>
 			<Word name="ATTACH_HUD_TOP_LEFT"></Word>
 			<Word name="ATTACH_HUD_TOP_RIGHT"></Word>
-		</WordsSubsection>
+      <Word name="ATTACH_FACE_JAW"></Word>
+
+      <Word name="ATTACH_FACE_LEAR"></Word>
+      <Word name="ATTACH_FACE_LEYE"></Word>
+      <Word name="ATTACH_FACE_REAR"></Word>
+      <Word name="ATTACH_FACE_REYE"></Word>
+      <Word name="ATTACH_FACE_TONGUE"></Word>
+      <Word name="ATTACH_GROIN"></Word>
+      <Word name="ATTACH_HIND_LFOOT"></Word>
+      <Word name="ATTACH_HIND_RFOOT"></Word>
+      <Word name="ATTACH_LHAND_RING1"></Word>
+      <Word name="ATTACH_LWING"></Word>
+      <Word name="ATTACH_RHAND_RING1"></Word>
+      <Word name="ATTACH_RWING"></Word>
+      <Word name="ATTACH_TAIL_BASE"></Word>
+      <Word name="ATTACH_TAIL_TIP"></Word>
+    </WordsSubsection>
 
 		<WordsSubsection name="C.7. Land Constants">
 			These constants are only used in calls to llModifyLand.
@@ -6216,6 +6234,8 @@
 			<Word name="CLICK_ACTION_TOUCH">
 				When the prim is touched, touch events are triggered"
 			</Word>
+      <Word name="CLICK_ACTION_ZOOM"></Word>
+      
 
 			<Word name="CONTENT_TYPE_ATOM">"application/atom+xml"</Word>
 			<Word name="CONTENT_TYPE_FORM">"application/x-www-form-urlencoded"</Word>
@@ -6254,6 +6274,10 @@
 			<Word name="HTTP_PRAGMA_NO_CACHE" type="integer" value="6">Allows enabling/disbling of the "Pragma: no-cache" header.</Word>
 			<Word name="HTTP_VERBOSE_THROTTLE"></Word>
 			<Word name="HTTP_VERIFY_CERT" value="3" />
+      <Word name="HTTP_ACCEPT" value="8"/>
+      <Word name="HTTP_USER_AGENT" value="7"></Word>
+      
+      
 
 			<Word name="KFM_CMD_PAUSE" value="2">For use with KFM_COMMAND.</Word>
 			<Word name="KFM_CMD_PLAY" value="0">For use with KFM_COMMAND.</Word>
@@ -6314,6 +6338,17 @@
 			<Word name="OBJECT_SCRIPT_MEMORY" value="11" />
 			<Word name="OBJECT_SCRIPT_TIME" value="12" />
 			<Word name="OBJECT_TOTAL_SCRIPT_COUNT" value="10" />
+      <Word name="OBJECT_ATTACHED_SLOTS_AVAILABLE" value="35"/>
+      <Word name="OBJECT_BODY_SHAPE_TYPE" value="26"/>
+      <Word name="OBJECT_CLICK_ACTION" value="28"/>
+      <Word name="OBJECT_HOVER_HEIGHT" value="25"/>
+      <Word name="OBJECT_LAST_OWNER_ID" value="27"/>
+      <Word name="OBJECT_OMEGA" value="29"/>
+      <Word name="OBJECT_PRIM_COUNT" value="30"/>
+      <Word name="OBJECT_RENDER_WEIGHT" value="24"/>
+      <Word name="OBJECT_SELECT_COUNT" value="37"/>
+      <Word name="OBJECT_REZZER_KEY" value="32"/>
+      <Word name="OBJECT_TOTAL_INVENTORY_COUNT" value="31"/>
 			<Word name="OBJECT_UNKNOWN_DETAIL" value="-1" />
 
 			<Word name="OPT_AVATAR" type="integer" value="1">Returned for avatars.</Word>
@@ -6523,7 +6558,18 @@
 			<Word name="PRIM_SCULPT_TYPE_PLANE" />
 			<Word name="PRIM_SCULPT_TYPE_SPHERE" />
 			<Word name="PRIM_SCULPT_TYPE_TORUS" />
-
+      <Word name="PRIM_ALLOW_UNSIT" />
+      <Word name="PRIM_ALPHA_MODE" />
+      <Word name="PRIM_ALPHA_MODE_BLEND" />
+      <Word name="PRIM_ALPHA_MODE_EMISSIVE" />
+      <Word name="PRIM_ALPHA_MODE_MASK" />
+      <Word name="PRIM_ALPHA_MODE_NONE" />
+      <Word name="PRIM_NORMAL" />
+      <Word name="PRIM_SCRIPTED_SIT_ONLY" />
+      <Word name="PRIM_SIT_TARGET" />
+      <Word name="PRIM_SPECULAR" />
+      
+      
 			<Word name="PROFILE_NONE">Disables profiling</Word>
 			<Word name="PROFILE_SCRIPT_MEMORY">Enables memory profiling</Word>
 
@@ -6546,6 +6592,10 @@
 				llSay, llWhisper, or llShout as a channel parameter,
 				will print text to the publicly heard chat channel. Has the value '0'.
 			</Word>
+      <Word name="PASS_ALWAYS" value="1"/>
+      <Word name="PASS_IF_NOT_HANDLED" value="0"/>
+      <Word name="PASS_NEVER" value="2"/>
+      <Word name="TARGETED_EMAIL_OBJECT_OWNER" value="2"/>
 
 			<Word name="RC_DATA_FLAGS" value="2" />
 			<Word name="RC_DETECT_PHANTOM" value="1" />
