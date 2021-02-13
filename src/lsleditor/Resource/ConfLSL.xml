@@ -115,6 +115,15 @@
 			with llPlaySound or llLoopSound.
 			This function Has no effect on sounds started with llTriggerSound.
 		</Word>
+    <Word name="llAgentInExperience">
+      integer llAgentInExperience(key agent)
+
+      Determines whether or not the specified agent is in the script's experience
+      Returns a boolean (an integer) that is TRUE if the agent is in the experience and the experience can run in the current region.
+      <Argument name="Agent">
+        key	agent	–	avatar UUID that is in the same region to query.
+      </Argument>
+    </Word>
 
 		<Word name="llAllowInventoryDrop">
 			llAllowInventoryDrop(integer add);
@@ -332,6 +341,16 @@
 			Creates a path-finding entity, known as a "character", from the object containing the script. Required to activate use of path-finding functions.
 			Options is a list of key/value pairs.
 		</Word>
+
+    <Word name="llCreateKeyValue">
+      key llCreateKeyValue( string k, string v );
+
+      Start an asynchronous transaction to create a key-value pair associated with the script's Experience using the given key (k) and value (v).
+      
+      <Argument name="k"></Argument>
+      <Argument name="v"></Argument>
+
+    </Word>
 
 		<Word name="llCreateLink">
 			llCreateLink(key target, integer parent);
@@ -3338,6 +3357,179 @@
 			your key in s2 to encrypt or put the encrypted data into s1
 			with the same key in s2 to decrypt again.
 		</Word>
+    <Word name="llDataSizeKeyValue">
+      key llDataSizeKeyValue( );
+    </Word>
+    <Word name="llDeleteKeyValue">
+      key llDeleteKeyValue( string k );
+      
+      <Arguement name="k"></Arguement>
+
+    </Word>
+    <Word name="llGetAttachedList">
+      list llGetAttachedList( key avatar );
+      <Argeument name="Avatar"></Argeument>
+    </Word>
+    <Word name="llGetDayLength">
+      integer llGetDayLength( );
+      Return the number of seconds in the day cycle applied to the current parcel. llGetDayLength returns the number of seconds for the current parcel, 
+      llGetRegionDayLength is the number of seconds in the day cycle applied to the entire region.
+    </Word>
+    <Word name="llGetDayOffset">
+      integer llGetDayOffset();
+      
+      Return the number of seconds added to the current time before calculating the current environmental time for the parcel. llGetDayOffset returns the value for the current parcel, 
+      llGetRegionDayOffset produces the same value for the entire region.
+    </Word>
+
+    <Word name="llGetEnvironment">
+      list llGetEnvironment( vector pos, list params );
+      
+      Returns a list containing the current environment values for the parcel and region as a list of attributes. Takes a list of attributes to retrieve in params and returns them in the order requested.
+      
+      <Argument name="pos">
+          A position in region coordinates. X and Y are in region coordinates and determine the parcel.
+          If X and Y are both -1, the environment for the region is inspected.
+          Z is the altitude in the region and determines which sky track is accessed.
+      </Argument>
+      <Argument name="Params">
+        A list of parameters to retrieve from the current environment.
+        If an unknown rule is encountered in the parameter list an error is sent to the debug channel.
+      </Argument>
+    </Word>
+    <Word name="llGetExperienceDetails">
+      list llGetExperienceDetails( key experience_id );
+
+      Returns a list of details about the experience. This list has 6 components: 
+      [string experience_name, key owner_id, key experience_id, integer state, string state_message, key group_id]
+      
+      <Argument name="experience_id">
+        The ID of the experience to query.
+      </Argument>
+    </Word>
+    <Word name="llGetExperienceErrorMessage">
+      string llGetExperienceErrorMessage( integer error );
+
+      Returns a string describing the error code passed or the string corresponding to error. Returns XP_ERROR_UNKNOWN_ERROR if the error is not a valid error code.
+      <Argument name="error">
+        integer	error	–	The error code constant to translate.
+      </Argument>
+    </Word>
+    <Word name="llGetMaxScaleFactor">
+      float llGetMaxScaleFactor( );
+
+      Returns a float that is the largest scaling factor that can be used with llScaleByFactor to resize the object.
+      This maximum is determined by the Linkability Rules and prim scale limits.
+    </Word>
+    <Word name="llGetMinScaleFactor">
+      float llGetMinScaleFactor( );
+
+      Returns a float that is the smallest scaling factor that can be used with llScaleByFactor to resize the object.
+      This minimum is determined by the prim scale limits.
+    </Word>
+    <Word name="llGetMoonDirection">
+      vector llGetMoonDirection( );
+      Returns a normalized vector to the current moon position at the location of object containing the script. 
+      llGetMoonDirection is the vector to the parcel's moon, llGetRegionMoonDirection is the vector to region's moon. 
+      If there is no custom environment set for the current parcel llGetMoonDirection returns the direction to the region's
+      moon. These functions are altitude aware.
+    </Word>
+    <Word name="llGetMoonRotation">
+      rotation llGetMoonRotation( );
+      Return the rotation applied to the moon for the parcel at the location of the object containing the script. 
+      These function are altitude aware and so will pick up the moon for their current track. 
+      llGetRegionMoonRotation returns the rotation applied at the region level, llGetMoonRotation does the same for 
+      the parcel. If there is no custom environment applied to parcel llGetMoonRotation returns the same value as 
+      llGetRegionMoonRotation.
+    </Word>
+    <Word name="llGetObjectAnimationNames">
+      list llGetObjectAnimationNames( );
+
+      Returns a list of names of animations playing in the current object
+    </Word>
+    <Word name="llGetRegionDayLength">
+      integer llGetRegionDayLength( );
+      
+      Return the number of seconds in the day cycle applied to the current region. 
+      llGetDayLength returns the number of seconds for the current parcel, llGetRegionDayLength
+      is the number of seconds in the day cycle applied to the entire region.
+    </Word>
+    <Word name="llGetRegionDayOffset">
+      integer llGetRegionDayOffset( );
+
+      Return the number of seconds added to the current time before calculating the current environmental time for the 
+      region. llGetDayOffset returns the value for the current parcel, llGetRegionDayOffset produces the same value for 
+      the entire region.
+    </Word>
+    <Word name="llGetRegionMoonDirection">
+      vector llGetRegionMoonDirection( );
+
+      Returns a normalized vector to the current moon position at the location of object containing the script. 
+      llGetMoonDirection is the vector to the parcel's moon, llGetRegionMoonDirection is the vector to region's moon. 
+      If there is no custom environment set for the current parcel llGetMoonDirection returns the direction to the
+      region's moon. These functions are altitude aware.
+    </Word>
+    <Word name="llGetRegionMoonRotation">
+      rotation llGetRegionMoonRotation( );
+
+      Return the rotation applied to the moon for the region at the location of the object containing the script. 
+      These function are altitude aware and so will pick up the moon for their current track. llGetRegionMoonRotation 
+      returns the rotation applied at the region level, llGetMoonRotation does the same for the parcel.
+      If there is no custom environment applied to parcel llGetMoonRotation returns the same value as 
+      llGetRegionMoonRotation.
+    </Word>
+    <Word name="llGetRegionSunDirection">
+      vector llGetRegionSunDirection( );
+
+      Returns a normalized vector to the current sun position at the location of object containing the script. 
+      llGetSunDirection is the vector to the parcel's sun, llGetRegionSunDirection is the vector to region's sun.
+      If there is no custom environment set for the current parcel llGetSunDirection returns the direction to the
+      region's sun. These functions are altitude aware.
+    </Word>
+    <Word name="llGetRegionSunRotation">
+      rotation llGetRegionSunRotation( );
+
+      Return the rotation applied to the sun for the region at the location of the object containing the script.
+      These functions are altitude aware and so will pick up the sun for their current track. 
+      llGetRegionSunRotation returns the rotation applied at the region level, llGetSunRotation does the same
+      for the parcel. If there is no custom environment applied to parcel llGetSunRotation returns the same value as
+      llGetRegionSunRotation.
+    </Word>
+    <Word name="llGetSunRotation">
+      rotation llGetSunRotation( );
+
+      Return the rotation applied to the sun for the parcel at the location of the object containing the script. 
+      These function are altitude aware and so will pick up the sun for their current track. llGetRegionSunRotation
+      returns the rotation applied at the region level, llGetSunRotation does the same for the parcel. If there
+      is no custom environment applied to parcel llGetSunRotation returns the same value as llGetRegionSunRotation.
+    </Word>
+    <Word name="llKeyCountKeyValue">
+      key llKeyCountKeyValue( );
+
+      Start an asynchronous transaction to request the number of keys with the script's Experience.
+
+      Returns a handle (a key) that can be used to identify the corresponding dataserver event to determine if this
+      command succeeded or failed and the results.
+    </Word>
+    <Word name="llReplaceAgentEnvironment">
+      Integer llReplaceAgentEnvironment( key agent_id, float transition, string environment );
+
+      The llReplaceAgentEnvironment function overrides the current region and parcel environment seen by an agent.
+      The new environment persists until the agent crosses to a new region or this function is called with the NULL_KEY 
+      or empty string in the environment parameter for the particular agent, doing so will strip all environmental
+      settings applied to this agent as part of the experience. This function must be executed as part of an experience.
+      
+      <Argument name="agent_id">
+        The key for an agent in the region. The agent must be in the region and must be participating in the experience.
+      </Argument>
+      <Argument name="transition">
+        The number of seconds over which to transition to the new settings.
+      </Argument>
+      <Argument name="environment">
+        The name of an environmental setting in the object's inventory or the asset ID for an environment.
+      </Argument>
+
+    </Word>
 	</Words>
 
   <Words icon="Functions" name="Appendix A. Linden Library Functions" color="#A00000" slcolor="#800026">

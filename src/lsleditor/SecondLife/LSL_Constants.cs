@@ -137,7 +137,23 @@ namespace LSLEditor
 		public const int ATTACH_HUD_BOTTOM = 37;
 		public const int ATTACH_HUD_BOTTOM_RIGHT = 38;
 
-		public const int AVOID_NONE = 0;
+        public const int ATTACH_FACE_JAW = 47;
+        public const int ATTACH_FACE_LEAR = 48;
+        public const int ATTACH_FACE_LEYE = 50;
+        public const int ATTACH_FACE_REAR = 49;
+        public const int ATTACH_FACE_REYE = 51;
+        public const int ATTACH_FACE_TONGUE = 52;
+        public const int ATTACH_GROIN = 53;
+        public const int ATTACH_HIND_LFOOT = 54;
+        public const int ATTACH_HIND_RFOOT = 55;
+        public const int ATTACH_LHAND_RING1 = 41;
+        public const int ATTACH_LWING = 45;
+        public const int ATTACH_RHAND_RING1 = 42;
+        public const int ATTACH_RWING = 46;
+        public const int ATTACH_TAIL_BASE = 43;
+        public const int ATTACH_TAIL_TIP = 44;
+
+        public const int AVOID_NONE = 0;
 		public const int AVOID_CHARACTERS = 1;
 		public const int AVOID_DYNAMIC_OBSTACLES = 2;
 
@@ -197,8 +213,9 @@ namespace LSLEditor
 		public const int CLICK_ACTION_OPEN = 4;
 		public const int CLICK_ACTION_PLAY = 5;
 		public const int CLICK_ACTION_OPEN_MEDIA = 6;
+        public const int CLICK_ACTION_ZOOM = 7;
 
-		public const string CONTENT_TYPE_ATOM = "application/atom+xml";
+        public const string CONTENT_TYPE_ATOM = "application/atom+xml";
 		public const string CONTENT_TYPE_FORM = "application/x-www-form-urlencoded";
 		public const string CONTENT_TYPE_HTML = "text/html";
 		public const string CONTENT_TYPE_JSON = "application/json";
@@ -252,8 +269,10 @@ namespace LSLEditor
 		public const int HTTP_PRAGMA_NO_CACHE = 6;
 		public const int HTTP_VERBOSE_THROTTLE = 4;
 		public const int HTTP_VERIFY_CERT = 3;
+        public const int HTTP_ACCEPT = 8;
+        public const int HTTP_USER_AGENT = 7;
 
-		public const int HORIZONTAL = 1;
+        public const int HORIZONTAL = 1;
 
 		public const int INVENTORY_ALL = -1;
 		public const int INVENTORY_NONE = -1;
@@ -267,8 +286,9 @@ namespace LSLEditor
 		public const int INVENTORY_BODYPART = 13;
 		public const int INVENTORY_ANIMATION = 20;
 		public const int INVENTORY_GESTURE = 21;
+        public const int INVENTORY_SETTING = 56;
 
-		public const int JSON_APPEND = -1;
+        public const int JSON_APPEND = -1;
 		public const string JSON_ARRAY = "\uFDD2";
 		public const string JSON_DELETE = "\uFDD8";
 		public const string JSON_FALSE = "\uFDD7";
@@ -341,8 +361,20 @@ namespace LSLEditor
 		public const int OBJECT_PHYSICS = 21;
 		public const int OBJECT_PHANTOM = 22;
 		public const int OBJECT_TEMP_ON_REZ = 23;
+        public const int OBJECT_ATTACHED_SLOTS_AVAILABLE = 35;
+        public const int OBJECT_BODY_SHAPE_TYPE = 26;
+        public const int OBJECT_CLICK_ACTION = 28;
+        public const int OBJECT_HOVER_HEIGHT = 25;
+        public const int OBJECT_LAST_OWNER_ID = 27;
+        public const int OBJECT_OMEGA = 29;
+        public const int OBJECT_PRIM_COUNT = 30;
+        public const int OBJECT_RENDER_WEIGHT = 24;
+        public const int OBJECT_SELECT_COUNT = 37;
+        public const int OBJECT_REZZER_KEY = 32;
+        public const int OBJECT_TOTAL_INVENTORY_COUNT = 31;
 
-		public const int OBJECT_STREAMING_COST = 15;
+
+        public const int OBJECT_STREAMING_COST = 15;
 		public const int OBJECT_PHYSICS_COST = 16;
 		public const int OBJECT_SERVER_COST = 14;
 		public const int OBJECT_PRIM_EQUIVALENCE = 13;
@@ -366,7 +398,12 @@ namespace LSLEditor
 		public const int OBJECT_RETURN_PARCEL_OWNER = 2;
 		public const int OBJECT_RETURN_REGION = 4;
 
-		public const int PARCEL_COUNT_TOTAL = 0;
+        public const int PASS_ALWAYS = 1;
+        public const int PASS_IF_NOT_HANDLED = 0;
+        public const int PASS_NEVER = 2;
+        public const int PERMISSION_SILENT_ESTATE_MANAGEMENT = 16384;
+
+        public const int PARCEL_COUNT_TOTAL = 0;
 		public const int PARCEL_COUNT_OWNER = 1;
 		public const int PARCEL_COUNT_GROUP = 2;
 		public const int PARCEL_COUNT_OTHER = 3;
@@ -481,7 +518,18 @@ namespace LSLEditor
 		public const int PRIM_MATERIAL_STONE = 0;
 		public const int PRIM_MATERIAL_WOOD = 3;
 
-		public const int PRIM_MEDIA_ALT_IMAGE_ENABLE = 0;
+        public const int PRIM_ALLOW_UNSIT = 39;
+        public const int PRIM_ALPHA_MODE = 38;
+        public const int PRIM_ALPHA_MODE_BLEND = 1;
+        public const int PRIM_ALPHA_MODE_EMISSIVE = 3;
+        public const int PRIM_ALPHA_MODE_MASK = 2;
+        public const int PRIM_ALPHA_MODE_NONE = 0;
+        public const int PRIM_NORMAL = 37;
+        public const int PRIM_SCRIPTED_SIT_ONLY = 40;
+        public const int PRIM_SIT_TARGET = 41;
+        public const int PRIM_SPECULAR = 36;
+
+        public const int PRIM_MEDIA_ALT_IMAGE_ENABLE = 0;
 		public const int PRIM_MEDIA_AUTO_LOOP = 4;
 		public const int PRIM_MEDIA_AUTO_PLAY = 5;
 		public const int PRIM_MEDIA_AUTO_SCALE = 6;
@@ -502,6 +550,7 @@ namespace LSLEditor
 		public const int PRIM_MEDIA_WHITELIST = 12;
 		public const int PRIM_MEDIA_WHITELIST_ENABLE = 11;
 		public const int PRIM_MEDIA_WIDTH_PIXELS = 9;
+
 
 		public const int PRIM_NAME = 27;
 		public const int PRIM_OMEGA = 32;
@@ -688,7 +737,9 @@ namespace LSLEditor
 		public const int TRAVERSAL_TYPE_NONE = 2;
 		public const int TRAVERSAL_TYPE_SLOW = 0;
 
-		public const int TYPE_INTEGER = 1;
+        public const int TARGETED_EMAIL_OBJECT_OWNER = 2;
+
+        public const int TYPE_INTEGER = 1;
 		public const int TYPE_FLOAT = 2;
 		public const int TYPE_STRING = 3;
 		public const int TYPE_KEY = 4;
