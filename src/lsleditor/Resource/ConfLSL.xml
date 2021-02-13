@@ -3519,16 +3519,132 @@
       or empty string in the environment parameter for the particular agent, doing so will strip all environmental
       settings applied to this agent as part of the experience. This function must be executed as part of an experience.
       
-      <Argument name="agent_id">
-        The key for an agent in the region. The agent must be in the region and must be participating in the experience.
-      </Argument>
-      <Argument name="transition">
-        The number of seconds over which to transition to the new settings.
-      </Argument>
-      <Argument name="environment">
-        The name of an environmental setting in the object's inventory or the asset ID for an environment.
-      </Argument>
+      <Argument name="agent_id">The key for an agent in the region. The agent must be in the region and must be participating in the experience.</Argument>
+      <Argument name="transition">The number of seconds over which to transition to the new settings.</Argument>
+      <Argument name="environment">The name of an environmental setting in the object's inventory or the asset ID for an environment.</Argument>
 
+    </Word>
+    <Word name="llRequestExperiencePermissions">
+      llRequestExperiencePermissions( key agent, string name );
+
+      Asks the agent for permission to participate in the script's Experience.
+      <Argument name="agent">Key of the agent to request permissions from</Argument>
+      <Argument name="name">Deprecated ,no longer used</Argument>
+    </Word>
+    <Word name="llKeysKeyValue">
+      key llKeysKeyValue( integer first, integer count );
+
+      Start an asynchronous transaction to request a number of keys from the script's Experience.
+
+      Returns a handle (a key) that can be used to identify the corresponding dataserver event to determine if this command succeeded or failed.
+      <Argument name="first">Zero-based index of the first key to retrieve</Argument>
+      <Argument name="count">Number of keys to retrieve</Argument> 
+    </Word>
+    <Word name="llScaleByFactor">
+      integer llScaleByFactor( float scaling_factor );
+
+      Attempts to resize the entire object by scaling_factor, maintaining the size-position ratios of the prims.
+
+      Resizing is subject to prim scale limits and linkability limits. This function can not resize the object if 
+      the linkset is physical, a pathfinding character, in a keyframed motion, or if resizing would cause the 
+      parcel to overflow.
+     
+      <Argument name="scaling_factor">The multiplier to be used with the prim sizes and their local positions.</Argument>
+    </Word>
+    <Word name="llLinear2sRGB">
+      vector llLinear2sRGB( vector color );
+      
+      Returns a vector Transforms a color specified in linear RGB colorspace into the sRGB colorspace.
+      <Arguement name="color"> Color in the linear color space.</Arguement>
+    </Word>
+    <Word name="llName2Key">
+      key llName2Key( string name );
+
+      Returns a key the Agent ID for the named agent in the region. If there is no agent with the 
+      specified name currently signed onto the region, this function returns the value NULL_KEY. 
+      Names are always provided in the form "First[ Last]" or "first[.last]" (first name with
+      an optional last name.) If the last name is omitted a last name of "Resident" is assumed.
+      Case is not considered when resolving agent names.
+      <Argument name="name"> Name of the avatar to retrieve the UUID of.</Argument>
+    </Word>
+    <Word name="llReadKeyValue">
+      key llReadKeyValue( string k );
+
+      Returns a handle (a key) that can be used to identify the corresponding dataserver event to determine if this command succeeded or failed and the results.
+      <Argument name="k">The key for the key-value pair</Argument>
+    </Word>
+    <Word name="llRequestUserKey">
+      key llRequestUserKey( string username );
+
+      Requests the Agent ID for the agent identified by name from the dataserver. 
+      The name given may be either the current name of an avatar or a historical name that has been 
+      used in the past. If no agent can be found with the supplied name this function returns the value NULL_KEY.
+
+      Returns a handle (a key) that can be used to identify the request when the dataserver event is raised.
+
+      The agent being searched for with this function does not need to be signed on to Second Life.
+    <Argument name="username">the username of the avatar to retrieve the UUID of.</Argument>
+    </Word>
+    <Word name="llSetAgentEnvironment">
+      llSetAgentEnvironment( key agent_id, float transition, list params );
+
+      This function sets environment values for an individual agent in an experience. 
+      The changes to the environment persist until the agent moves to a new region or
+      llSetAgentEnvironment is called for an agent with an empty list. Passing an empty list in
+      params will strip all environmental settings applied to this agent as part of the experience
+      
+      <Argument name="agent_id">The key for an agent in the region. The agent must be in the region and must be participating in the experience.</Argument>
+      <Argument name="transition">The number of seconds over which to transition to the new settings.</Argument>
+      <Argument name="params">A list of parameters to retrieve from the current environment. See table below for details.</Argument>
+    </Word>
+    <Word name="llSitOnLink">
+      Integer llSitOnLink( key agent_id, integer link );
+
+      The avatar specified by agent_id is forced to sit on the sit target of the prim indicated by
+      the link parameter. If the specified link is already occupied, the simulator searches down the
+      chain of prims in the link set looking for an available sit target.
+      
+      <Argument name="agent_id">UUID of the avatar being forced to sit</Argument>
+      <Argument name="link">Link number for the prim containing the desired sit target</Argument>
+    </Word>
+    <Word name="llsRGB2Linear">
+      vector llsRGB2Linear( vector srgb );
+
+      Returns a vector Transforms a color specified in the sRGB colorspace to the linear RGB colorspace.
+      <Argument name="srgb">Color in the sRGB color space.</Argument>
+    </Word>
+    <Word name="llStartObjectAnimation">
+      llStartObjectAnimation( string anim );
+
+      Start animation for the current object.
+      <Arguement name="anim">name of an animation in the inventory of the current object</Arguement>
+    </Word>
+    <Word name="llStopObjectAnimation">
+      llStopObjectAnimation( string anim );
+      
+      Stop an animation for the current object.
+    <Argument name="anim"> name of an animation in the inventory of the current object, or an animation uuid</Argument>
+    </Word>
+    <Word name="llTargetedEmail">
+      llTargetedEmail( integer target, string subject, string message );
+
+      Sends an email to the owner or creator (selected by target) of an object with subject and message.
+      <Argument name="target"></Argument>
+      <Argument name="subject"></Argument>
+      <Argument name="message"></Argument>
+    </Word>
+    <Word name="llUpdateKeyValue">
+      key llUpdateKeyValue( string k, string v, integer checked, string original_value );
+
+      Start an asynchronous transaction to update a key-value pair associated with the script's Experience with
+      the given key (k) and value (v).
+
+      <Argument name="k">The key for the key-value pair</Argument>
+      <Argument name="v">The value for the key-value pair. Maximum 2047 characters, or 4095 if using Mono.</Argument>
+      <Argument name="checked" wild="TRUE|FALSE">If TRUE the update will only happen if original_value matches the value in the key-value store.</Argument>
+      <Argument name="original_value">The value to compare with the current value in the key-value store.</Argument>
+      
+      
     </Word>
 	</Words>
 
@@ -4774,104 +4890,58 @@
     </Word>
   </Words>
 
-    <Words icon="Events" name="Appendix B. Events" color="#00A0A0" slcolor="#004D80">
+  <Words icon="Events" name="Appendix B. Events" color="#00A0A0" slcolor="#004D80">
 		Every state must have at least one handler. You can choose to
 		handle an event by defining one of the the reserved
 		event handlers named here.
 		<Word name="at_target" args="integer tnum,vector targetpos,vector ourpos">
 			at_target(integer tnum, vector targetpos, vector ourpos);
-
-			This event handler is triggered when the scripted object comes within
-			a defined range of the target position targetpos
-			(defined by the llTarget function call).
 		</Word>
 
 		<Word name="at_rot_target" args="integer number,rotation target_rotation,rotation our_rotation">
 			at_rot_target(integer number, rotation target_rotation, rotation our_rotation);
-
-			This event is triggered when a script comes within a defined
-			angle of a target rotation. The range is set by a call
-			to llRotTarget.
 		</Word>
 
 		<Word name="attach" args="key attached">
 			attach(key attached);
-
-			This event is triggered whenever a object with this script is
-			attached or detached from an avatar. If it is attached,
-			attached is the key of the avatar it is attached to, otherwise
-			attached is NULL_KEY.
 		</Word>
 
 		<Word name="changed" args="integer change">
 			changed(integer change);
-
-			Triggered when various events change the object. The change
-			argument will be a bitfield of change constants.
 		</Word>
 
 		<Word name="collision" args="integer total_number">
 			collision(integer total_number);
-
-			This event is raised while another object is colliding with
-			the object the script is attached to. The number of
-			detected objects is passed to the script. Information on
-			those objects may be gathered via the llDetected* library
-			functions.
-			(Collisions are also generated if a user walks into an object.)
 		</Word>
 
 		<Word name="collision_end" args="integer total_number">
 			collision_end(integer total_number);
-
-			This event is raised when another object stops colliding with
-			the object the script is attached to. The number of
-			detected objects is passed to the script. Information on those
-			objects may be gathered via the llDetected* library
-			functions.
-			(Collisions are also generated if a user walks into an object.)
 		</Word>
 
 		<Word name="collision_start" args="integer total_number">
 			collision_start(integer total_number);
-
-			This event is raised when another object begins to collide with
-			the object the script is attached to. The number of
-			detected objects is passed to the script. Information on
-			those objects may be gathered via the llDetected* library
-			functions.
-			(Collisions are also generated if a user walks into an object.)
 		</Word>
 
 		<Word name="control" args="key name, integer levels, integer edges">
-			control(key name, integer levels, integer edges);
-
-			Once a script has the ability to grab control inputs from the avatar,
-			this event will be used to pass the commands
-			into the script. The levelsand edgesare bitfields
-			of control constsants.
+      control(key name, integer levels, integer edges)
 		</Word>
 
 		<Word name="dataserver" args="key requested, string data">
 			dataserver(key requested, string data);
-
-			This event is triggered when the requested data is returned
-			to the script. Data may be requested by the
-			llRequestAgentData, the llRequestInventoryData,
-			and the llGetNotecardLine function calls.
 		</Word>
+    <Word name="experience_permissions" args="key agent_id">
+      experience_permissions(key agent_id)
+    </Word>
+    <Word name="experience_permissions_denied" args="key agent_id, integer reason">
+      experience_permissions_denied(key agent_id, integer reason)
+    </Word>
 
 		<Word name="email" args="string time, string address, string subject, string body, integer remaining">
 			email(string time, string address, string subject, string body, integer remaining);
-
-			This event is triggered when an email sent to this script arrives.
-			The remaining tells how many more emails are known as still pending.
 		</Word>
 
 		<Word name="http_request" args="key request_id, string method, string body">
 			http_request(key request_id, string method, string body);
-
-			Triggered when task receives an HTTP request.
 						<Argument name="request_id">HTTP request id for response use, and function response identification.</Argument>
 						<Argument name="method">GET, POST, PUT</Argument>
 						<Argument name="body">Contents of the request.</Argument>
@@ -4879,199 +4949,103 @@
 
 		<Word name="http_response" args="key request_id,integer status,list metadata,string body">
 			http_response(key request_id, integer status, list metadata, string body);
-
-			This event handler is invoked when an HTTP response is received for
-			a pending llHTTPRequest request or if a pending request fails or times out.
 		</Word>
 
 		<Word name="land_collision" args="vector position">
 			land_collision(vector position);
-
-			This event is raised when the object the script is attached
-			to is colliding with the ground.
 		</Word>
 
 		<Word name="land_collision_end" args="vector position">
 			land_collision_end(vector position);
-
-			This event is raised when the object the script is attached
-			to stops colliding with the ground.
 		</Word>
 
 		<Word name="land_collision_start" args="vector position">
 			land_collision_start(vector position);
-
-			This event is raised when the object the script is attached
-			to begins to collide with the ground.
 		</Word>
 
 		<Word name="link_message" args="integer sender_number, integer number, string message, key id">
 			link_message(integer sender_number, integer number, string message, key id);
-
-			Triggered when object receives a link message via llMessageLinked
-			library function call.
 		</Word>
 
 		<Word name="listen" args="integer channel,string name,key id,string message">
 			listen(integer channel, string name, key id, string message);
-
-			This event is raised whenever a chat message matching the
-			constraints passed in the llListen command is heard.
-			The nameand id of the speaker as well as the messageare passed
-			in as parameters. Channel 0 is the public
-			chat channel that all avatars see as chat text.
-			Channels 1 through 2,147,483,648 are private channels that are not
-			sent to avatars but other scripts can listen on those channels.
 		</Word>
 
 		<Word name="money" args="key giver,integer amount">
 			money(key giver, integer amount);
-
-			This event is triggered when user giver has given an amount
-			of Linden dollars to the object.
 		</Word>
 
 		<Word name="moving_end">
 			moving_end(void);
-
-			Triggered whenever a object with this script stops moving.
 		</Word>
 
 		<Word name="moving_start">
 			moving_start(void);
-
-			Triggered whenever a object with this script starts moving.
 		</Word>
 
 		<Word name="no_sensor">
 			no_sensor(void);
-
-			This event is raised when sensors are active
-			(via the llSensor library call) but are not sensing anything.
 		</Word>
 
 		<Word name="not_at_rot_target">
 			not_at_rot_target(void);
-
-			When a target is set via the llRotTarget library call,
-			but the script is outside the specified angle this event is raised.
 		</Word>
 
 		<Word name="not_at_target">
 			not_at_target(void);
-
-			When a target is set via the llTarget library call,
-			but the script is outside the specified range this event is raised.
 		</Word>
 
 		<Word name="object_rez" args="key id">
 			object_rez(key id);
-
-			Triggered when object rez-es in another object from its
-			inventory via the llRezObject api. The id is the globally
-			unique key for the object.
 		</Word>
 
 		<Word name="on_rez" args="integer start_param">
 			on_rez(integer start_param);
-
-			Triggered whenever a object is rez-ed from inventory
-			or by another object. The start_paramis the parameter
-			passed in from the call to llRezObject.
 		</Word>
 
 		<Word name="path_update" args="integer Type, list Reserved" status="beta">
 			path_update(integer Type, list Reserved)
-
-			This event is called to inform the script of changes within the object's path-finding status.
 			<Argument name="Type">One of the PU* (Path Update) constants.</Argument>
 		</Word>
 
 		<Word name="remote_data" args="integer event_type,key channel,key message_id,string sender,integer idata,string sdata">
 			remote_data(integer event_type, key channel, key message_id, string sender, integer idata, string sdata);
-
-			Triggered by various XML-RPC calls with event_type specifying the type of data.
 		</Word>
 
 		<Word name="run_time_permissions" args="integer permissions">
 			run_time_permissions(integer permissions);
-
-			Scripts need permission from either the owner or the avatar
-			they wish to act on before they perform certain
-			functions, such as debiting money from their owners account,
-			triggering an animation on an avatar, or capturing
-			control inputs. The llRequestPermissions library
-			function is used to request these permissions and the various
-			permissions integer constants can be supplied.
-			The integer returned to this event handler contains the current set
-			of permissions flags, so if permissionseqal 0 then no permissions are set.
 		</Word>
 
 		<Word name="sensor" args="integer total_number">
 			sensor(integer total_number);
-
-			This event is raised whenever objects matching the constraints
-			of the llSensor command are detected.
-			The number of detected objects is passed to the script
-			in the total_number parameter. Information on those
-			objects may be gathered via the llDetected* library functions.
 		</Word>
 
 		<Word name="state_entry">
 			state_entry(void);
-
-			The state_entry event occurs whenever a new state is entered,
-			including program start, and is always the first event handled.
 		</Word>
 
 		<Word name="state_exit">
 			state_exit(void);
-
-			The state_exit event occurs whenever the state command
-			is used to transition to another state. It is handled
-			before the new states state_entry event.
 		</Word>
 
 		<Word name="timer">
 			timer(void);
-
-			This event is raised at regular intervals set by the
-			llSetTimerEvent library function.
 		</Word>
 
 		<Word name="touch" args="integer total_number">
 			touch(integer total_number);
-
-			This event is raised while a user is touching the object
-			the script is attached to. The number of touching objects is
-			passed to the script in the total_number parameter.
-			Information on those objects may be gathered via the
-			llDetected* library functions.
 		</Word>
 
 		<Word name="touch_end" args="integer total_number">
 			touch_end(integer total_number);
-
-			This event is raised when a user stops touching the object
-			the script is attached to. The number of touching
-			objects is passed to the script in the total_number parameter.
-			Information on those objects may be gathered
-			via the llDetected* library functions.
 		</Word>
 
 		<Word name="touch_start" args="integer total_number">
 			touch_start(integer total_number);
-
-			This event is raised when a user first touches the object the script is
-			attached to. The number of touching objects is passed to the script in
-			the total_number parameter. Information on those objects may be gathered
-			via the llDetected() library functions.
 		</Word>
 
 		<Word name="transaction_result" args="key kID, integer iSuccess, string sText">
 			transaction_result(key RequestID, integer Success, string Text)
-
-			Triggered by llTransferMoney() function.
 			<Argument name="RequestID">The key returned by an llTransferMoney call to identify the specific request.</Argument>
 			<Argument name="Success">Boolean value, indicating success of the transfer</Argument>
 			<Argument name="Message">Message which depends on the result of the transaction. If iSuccess is true, this will contain &lt;destination_id&gt;,&lt;amount&gt;</Argument>
