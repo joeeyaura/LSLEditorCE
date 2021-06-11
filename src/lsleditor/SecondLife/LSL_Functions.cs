@@ -3403,6 +3403,26 @@ namespace LSLEditor
             Verbose(@"llAgentInExperience(""{0})=", Agent);
             return TRUE;
         }
+        public integer llOrd(string val,integer index)
+        {
+            Verbose(@"llOrd(""{0}"",{1})", val, index);
+            return (int)val[index];
+        }
+        public string llGetInventoryAcquireTime(string item)
+        {
+            Verbose(@"llGetInventoryAcquireTime(""{0}"")", item);
+            return "";
+        }
+        public integer llHash(string val)
+        {
+            Verbose(@"llHash(""{0}"")", val);
+            return 0;
+        }
+        public integer llChar(integer val)
+        {
+            Verbose(@"llChar(""{0}"")", val);
+            return 0;
+        }
 
     }
 }

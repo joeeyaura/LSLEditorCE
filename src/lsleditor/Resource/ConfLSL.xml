@@ -2161,6 +2161,39 @@
 			</Argument>
 		</Word>
 
+    <Word name="llOrd">
+      integer llOrd( string val, integer index );
+      Calculate the ordinal value for a character in a string.
+      <Argument name="val">
+        string	val	–	Source string for character ordinal.
+      </Argument>
+      <Argument name="index">
+        integer	index	–	Index of character ordinal to retrieve.
+      </Argument>
+    </Word>
+    <Word name="llChar">
+      string llChar( integer val );
+      Construct a single character string from the supplied Unicode value.
+     <Argument name="val">
+       • integer val-	Unicode value for character.
+     </Argument> 
+    </Word>
+    <Word name="llHash">
+      integer llHash( string val );
+      Returns a 32bit hash for the provided string. Returns 0 if the input string is empty.
+      <Argument name="val">
+        string	val	–	String to hash.
+      </Argument>
+    </Word>
+    <Word name="llGetInventoryAcquireTime">
+      llGetInventoryAcquireTime( string item );
+
+      Returns a string with the timestamp that the item was added to the prim's inventory.
+      • string	item	–	an item in the inventory of the prim this script is in
+      <Argument name="item">
+        • string	item	–	an item in the inventory of the prim this script is in
+      </Argument>
+    </Word>
 		<Word name="llRegionSayTo">
 			llRegionSayTo( key target, integer channel, string msg );
 
